@@ -2,16 +2,15 @@ const Sequelize = require('sequelize');
 const sequelize = require('../util/database');
 
 
-const Room = sequelize.define('Room', {
+const Room = sequelize.define('ReservedRoom', {
 
-    name: {
-        type: Sequelize.STRING
-    },
+    id: {
+        type: Sequelize.INTEGER,
+        primaryKey: true
+    }
 
-
-
-    },{
+},{
     timestamps: false
 
-    });
+});
 module.exports = Room;

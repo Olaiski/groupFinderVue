@@ -76,7 +76,7 @@ exports.login = async (req, res) => {
             id: student.id
         },
         'SECRETKEY', {
-            expiresIn: '7d'
+            expiresIn: '1d'
         }
     );
 
@@ -87,7 +87,6 @@ exports.login = async (req, res) => {
         email: student.email,
         phonenumber: student.phonenumber
     });
-
 
         res.status(200).send({
             msg: 'Logged in!',
