@@ -11,9 +11,11 @@ const Room = sequelize.define('Room', {
     name: {
         type: Sequelize.STRING
     },
+    sted: {
+        type: Sequelize.STRING
+    },
 
     },{
     timestamps: false
-
     });
 module.exports = Room;

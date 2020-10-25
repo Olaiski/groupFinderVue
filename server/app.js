@@ -1,16 +1,20 @@
 const express = require('express');
 const cors = require('cors');
 const sequelize = require('./util/database');
+const bodyParser = require('body-parser');
 
 const authRoute = require('./routes/authRoutes');
 const homeRoute = require('./routes/home');
 const calendarRoute = require('./routes/calendarRoutes');
 
 
+
 const PORT = 3000;
 
 const app = express();
 app.use(express.json());
+app.use(bodyParser.json()); // handle json data
+app.use(bodyParser.urlencoded({ extended: true })); // handle URL-encoded data
 app.use(cors());
 
 // Route middleware
@@ -26,7 +30,6 @@ app.use((req, res, next) => {
 app.use('/api/auth', authRoute);
 app.use('/api/user', homeRoute);
 app.use('/api/user', calendarRoute);
-
 
 
 
@@ -67,8 +70,6 @@ sequelize
     .catch(error => {
         console.log(error);
     });
-
-
 
 
 

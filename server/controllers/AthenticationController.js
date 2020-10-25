@@ -5,6 +5,7 @@ const jwt = require('jsonwebtoken');
 const { registerValidation } = require('../policies/validation');
 const { loginValidation } = require('../policies/validation');
 
+
 // REGISTER
 exports.register = async (req, res) => {
     // Bruker funksjonen i policies/validation
@@ -32,9 +33,10 @@ exports.register = async (req, res) => {
             phonenumber: req.body.phonenumber,
             password: hashedPw
         });
-        res.status(200).send(({
+
+        res.status(200).send({
             msg: `New user created, ID: ${savedStudent.id}`
-        }));
+        });
 
     }catch (e) {
         res.status(400).send({
@@ -69,7 +71,6 @@ exports.login = async (req, res) => {
         });
 
     }
-
     // Lager / tildeler token når man logger inn
     const token = await jwt.sign({
             email: student.email,
@@ -90,7 +91,7 @@ exports.login = async (req, res) => {
 
         res.status(200).send({
             msg: 'Logged in!',
-            token,
+            token: token,
             user: savedStudent
         });
 };

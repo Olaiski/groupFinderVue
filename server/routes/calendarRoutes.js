@@ -2,13 +2,17 @@ const router = require('express').Router();
 const ReservationController = require('../controllers/CalendarController');
 const middlewareUser = require('./middlewareUser');
 
-router.get('/reservations', middlewareUser.isLoggedIn, ReservationController.getAllReservations);
 
-router.post('/reserveRoom', middlewareUser.isLoggedIn, ReservationController.reserveRoom);
+router.get('/kalender', middlewareUser.isLoggedIn, (req,res) =>{});
 
-router.get('/rooms', middlewareUser.isLoggedIn, ReservationController.getAllRooms);
+router.post('/reserveRoom',middlewareUser.isLoggedIn, ReservationController.reserveRoom);
 
+router.delete('/cancelReservation',middlewareUser.isLoggedIn, ReservationController.cancelReservation);
+router.post('/updateReservation', middlewareUser.isLoggedIn, ReservationController.updateReservation);
+
+router.get('/groupLeaderGroups', middlewareUser.isLoggedIn, ReservationController.groupLeaderGroupsAll);
 router.get('/userReservations', middlewareUser.isLoggedIn, ReservationController.getUserReservations);
+router.get('/vacantRooms', ReservationController.getVacantRooms);
 
 
 

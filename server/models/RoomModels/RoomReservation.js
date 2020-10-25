@@ -10,10 +10,10 @@ const RoomReservation = sequelize.define('RoomReservation', {
         primaryKey: true
     },
     startDateTime: {
-        type: Sequelize.DATE
+        type: Sequelize.STRING,
     },
     endDateTime: {
-        type: Sequelize.DATE
+        type: Sequelize.STRING,
     },
 
 

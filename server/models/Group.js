@@ -3,11 +3,9 @@ const sequelize = require('../util/database');
 
 const Group = sequelize.define('Group', {
 
-
-    description: {
+    groupName: {
         type: Sequelize.STRING
     },
-
 
     },{
     timestamps: false
