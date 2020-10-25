@@ -1,4 +1,5 @@
-# app
+Skole prosjekt - REST API og Web applikasjon
+
 
 ## Project setup
 ```
